@@ -82,6 +82,34 @@ def cpu_load(qty=1):
 def cpu_load_latest():
     return cpu_load(1)
 
+@app.route('/api/enviroment')
+def get_api_enviroment():
+    return {'error': 'Route note implemented',
+    'temperature': None,
+    'pressure': None,
+    'humidity': None,}
+
+@app.route('/api/tenperature')
+def get_api_temperature():
+    return {'error': 'Route note implemented',
+            'temperature': None,
+            'pressure': None,
+            'humidity': None, }
+
+@app.route('/api/pressure')
+def get_api_pressure():
+    return {'error': 'Route note implemented',
+            'temperature': None,
+            'pressure': None,
+            'humidity': None, }
+
+@app.route('/api/humidity')
+def get_api_humidity():
+    return {'error': 'Route note implemented',
+            'temperature': None,
+            'pressure': None,
+            'humidity': None, }
+
 
 if __name__ == '__main__':
     app.run()

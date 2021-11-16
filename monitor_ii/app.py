@@ -89,7 +89,7 @@ def get_api_enviroment():
     'pressure': None,
     'humidity': None,}
 
-@app.route('/api/tenperature')
+@app.route('/api/temperature')
 def get_api_temperature():
     return {'error': 'Route note implemented',
             'temperature': None,

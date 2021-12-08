@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block page_css %}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <h1>Welcome to Flask & ChartJS Demo</h1>
+        </div>
+        <div class="col">
+            <dl>
+                <dt>
+                    <a href="/static-chart">
+                        Single static chart
+                    </a>
+                </dt>
+                <dd>This embeds the JavaScript in the template</dd>
+                <dt>Two static charts</dt>
+                <dd>This uses a JavaScript file for the charts</dd>
+                <dt>Single dynamic chart</dt>
+                <dd>This uses a JavaScript file for the chart</dd>
+            </dl>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_scripts %}
+{% endblock %}

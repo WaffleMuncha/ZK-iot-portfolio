@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}
+    INDEX
+{% endblock %}
+
+{% block page_css %}
+    <link href="/static/css/Chart.min.css" rel="stylesheet"
+          crossorigin="anonymous"/>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <canvas id="chart-1" ></canvas>
+        </div>
+        <div class="col">
+            <canvas id="chart-2" ></canvas>
+        </div>
+        <div class="col">
+            <canvas id="chart-3" ></canvas>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_scripts %}
+    <script src="/static/js/Chart.bundle.js"></script>
+    <script>
+        var chartCanvas1 = document.getElementById('chart-1')
+        var barData = {
+            labels: ['Eagles', 'Dockers', 'Magpies', 'Koalas', 'Bulldogs', 'Quokkas'],
+            datasets: [{
+                label: 'Popularity',
+                data: [12, 5, 8, 23, 17, 6],
+                borderWidth: 1,
+            }],
+        }
+
+        var barOptions = {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                    },
+                }],
+            },
+        }
+
+        var myChart1 = new Chart(chartCanvas1, {
+            type: 'bar',
+            data: barData,
+            options: barOptions,
+        })
+    </script>
+        <script src="/static/js/dashboard.js"></script>
+{% endblock %}

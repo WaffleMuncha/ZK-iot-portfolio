@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Static Chart
+{% endblock %}
+
+{% block page_css %}
+    <link href="/static/vendor/css/Chart.css" rel="stylesheet" crossorigin="anonymous">
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-6">
+            <canvas id="static-chart">
+                <script src="/static/js/device-load.js"></script>
+            </canvas>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_scripts %}
+    <script src="static/js/device-load.js"></script>
+
+{% endblock %}

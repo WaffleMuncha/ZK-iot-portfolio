@@ -52,6 +52,10 @@ def index():
     return render_template('index.html', statuses=statuses)
 
 
+@app.route('/cpu')
+def chart_cpu():
+    return render_template('static-chart.html')
+
 @app.route('/about')
 def demo_template():
     return render_template('about.html')

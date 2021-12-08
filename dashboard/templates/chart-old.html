@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/static/css/Chat.css" rel="stylesheet" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="chart-1" width="400" height="300"></canvas>
+    <canvas id="chart-2" width="400" height="300"></canvas>
+    <canvas id="chart-3" width="400" height="300"></canvas>
+</body>
+<script src="/static/js/Chart.bundle.js"></script>
+<script>
+    var chartCanvas1 = document.getElementById('chart-1')
+    var barData = {
+        labels:['Eagles', 'Dockers', 'Magpies', 'Koalas', 'Bulldogs', 'Quokkas'],
+        datasets:[{
+            label:'Popularity',
+            data:[12, 5, 8, 23, 17, 6],
+            borderWidth: 1,
+        }],
+    }
+
+    var barOptions={
+        scales:{
+            yAxes:[{
+                ticks:{
+                    beginAtZero: true,
+                },
+            }],
+        },
+    }
+
+    var myChart1 = new Chart(chartCanvas1, {
+        type: 'bar',
+        data: barData,
+        options: barOptions,
+    })
+</script>
+</html>

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify
-from db import CPU, Storage, Base
+from db import CPU, Storage, Base, EnviromentTPH
 from flask_cors import CORS
 
 from sqlalchemy import create_engine, select
@@ -84,31 +84,29 @@ def cpu_load_latest():
 
 @app.route('/api/enviroment')
 def get_api_enviroment():
-    return {'error': 'Route note implemented',
-    'temperature': None,
-    'pressure': None,
-    'humidity': None,}
+    envirodb = EnviromentTPH()
+    tempString = envirodb.get_last_temp()
+    pressString = envirodb.get_last_pressure()
+    humString = envirodb.get_last_hum()
+    return {'Enviroment': tempString + pressString + humString }
 
 @app.route('/api/temperature')
 def get_api_temperature():
-    return {'error': 'Route note implemented',
-            'temperature': None,
-            'pressure': None,
-            'humidity': None, }
+    envirodb = EnviromentTPH()
+    jsonString = envirodb.get_last_temp()
+    return {'LatestTemperature': jsonString }
 
 @app.route('/api/pressure')
 def get_api_pressure():
-    return {'error': 'Route note implemented',
-            'temperature': None,
-            'pressure': None,
-            'humidity': None, }
+    envirodb = EnviromentTPH()
+    jsonString = envirodb.get_last_pressure()
+    return {'LatestPressure': jsonString }
 
 @app.route('/api/humidity')
 def get_api_humidity():
-    return {'error': 'Route note implemented',
-            'temperature': None,
-            'pressure': None,
-            'humidity': None, }
+    envirodb = EnviromentTPH()
+    jsonString = envirodb.get_last_hum()
+    return {'LatestHumidity': jsonString }
 
 
 if __name__ == '__main__':
